@@ -1,4 +1,5 @@
 using BSTs;
+using BSTTest;
 using Microsoft.VisualBasic;
 using System;
 using System.Runtime.InteropServices.JavaScript;
@@ -17,8 +18,7 @@ namespace BSTs.Tests
 
 
         [Theory]
-        [InlineData(new int[] { 10, 20, 30, 15, 25 })]
-        [InlineData(new int[] { 12, 2, 1, 15, 26, 23, 24, 6, 34, 3, 4, 20, 46, 56, 10, 8, 9, 7 })]
+        [MemberData(nameof(TestInput.IntInput), MemberType = typeof(TestInput))]
         public void insert__test(int[] test_arr)
         {
             AvlTree<int> avl = new();
@@ -27,12 +27,10 @@ namespace BSTs.Tests
                 avl.insert(i);
                 Assert.True(avl.contains(i));
             }
-
         }
 
         [Theory]
-        [InlineData(new int[] { 10, 20, 30, 15, 25 })]
-        [InlineData(new int[] { 12, 2, 1, 15, 26, 23, 24, 6, 34, 3, 4, 20, 46, 56, 10, 8, 9, 7 })]
+        [MemberData(nameof(TestInput.IntInput), MemberType = typeof(TestInput))]
         public void delete_test(int[] test_arr)
         {
             AvlTree<int> avl = new();
@@ -48,8 +46,7 @@ namespace BSTs.Tests
         }
 
         [Theory]
-        [InlineData(new int[] { 10, 20, 30, 15, 25 })]
-        [InlineData(new int[] { 12, 2, 1, 15, 26, 23, 24, 6, 34, 3, 4, 20, 46, 56, 10, 8, 9, 7 })]
+        [MemberData(nameof(TestInput.IntInput), MemberType = typeof(TestInput))]
         public void avl_property_test(int[] test_arr)
         {
             AvlTree<int> avl = new();
@@ -66,8 +63,7 @@ namespace BSTs.Tests
         }
 
         [Theory]
-        [InlineData(new int[] { 10, 20, 30, 15, 25 })]
-        [InlineData(new int[] { 12, 2, 1, 15, 26, 23, 24, 6, 34, 3, 4, 20, 46, 56, 10, 8, 9, 7 })]
+        [MemberData(nameof(TestInput.IntInput), MemberType = typeof(TestInput))]
         public void parent_child_test(int[] test_arr)
         {
             AvlTree<int> avl = new();
